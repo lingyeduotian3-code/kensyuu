@@ -17,4 +17,11 @@ public class Main3_renshu2 {
 	}
 	}
 
+int isHungry = 1;
+String food = "おにぎり";
+boolean isHungry = true
+if (isHungry == true);{
+	System.out.println("お腹がいっぱいです");
+}else {
+	System.out.println("腹ペコです");
 }
