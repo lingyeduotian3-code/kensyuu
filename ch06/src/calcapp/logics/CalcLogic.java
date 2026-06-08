@@ -1,4 +1,4 @@
-package ch06;
+package calcapp.logics;
 
 public class CalcLogic {
 	public static int tasu(int a, int b) {

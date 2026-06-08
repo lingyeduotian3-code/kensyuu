@@ -1,5 +1,5 @@
 package calcapp.main;
-
+import calcapp.logics.CalcLogic;
 public class Calc {
 	public static void main(String[] args) {
 		int a = 10;
