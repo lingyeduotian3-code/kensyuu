@@ -21,3 +21,4 @@ case 4,5 -> {
 	}
 
 
+System.out.println
