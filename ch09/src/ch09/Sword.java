@@ -1,6 +1,6 @@
 package ch09;
 
-public class sword {
+public class Sword {
 	String name;
 	int damege;
 
