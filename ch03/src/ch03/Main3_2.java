@@ -4,7 +4,7 @@ public class Main3_2 {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
-		boolean doorClose = false;
+		boolean doorClose = true;
 		if (doorClose == true)
 			while (doorClose == true) {
 			System.out.println("ノックをする");
