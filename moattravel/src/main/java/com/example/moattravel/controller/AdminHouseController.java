@@ -88,7 +88,6 @@ public class AdminHouseController {
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable(name = "id") Integer id, Model model) {
-
         House house = houseRepository.getReferenceById(id);
         String imageName = house.getImageName();
 
@@ -131,7 +130,6 @@ public class AdminHouseController {
             RedirectAttributes redirectAttributes) {
 
         houseRepository.deleteById(id);
-
         redirectAttributes.addFlashAttribute("successMessage", "民宿を削除しました。");
 
         return "redirect:/admin/houses";
