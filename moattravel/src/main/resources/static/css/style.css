@@ -50,25 +50,28 @@ footer {
 
 /* 削除リンク */
 .moattravel-link-danger {
-  color: rgb(0, 0, 160);
+    color: #f2594b;
 }
 
 .moattravel-link-danger:hover {
-  color: rgb(128, 0, 64);
+    color: #a63c3c;
 }
 
-/* 削除ボタン */
 .moattravel-btn-danger {
-  background-color: rgb(255, 0, 0) !important;
-  transition: 0.1s;
+    background-color: #f2594b !important;
+    transition: 0.1s;
 }
 
 .moattravel-btn-danger:hover {
-  opacity: 0.8;
+    opacity: 0.8;
+}
+
+.moattravel-dropdown-item:active {
+    background-color: #5196a6;
 }
 
 @media screen and (min-width: 1400px) {
-  .moattravel-container {
-    max-width: 1200px;
-  }
+    .moattravel-container {
+        max-width: 1200px;
+    }
 }
