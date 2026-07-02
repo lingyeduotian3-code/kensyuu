@@ -27,5 +27,5 @@ private String address;
 private String phoneNumber;
 
 @NotBlank(message ="メールアドレスを入力してください。")
-private String emall;
+private String email;
 }
