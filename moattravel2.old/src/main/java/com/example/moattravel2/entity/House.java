@@ -1,4 +1,4 @@
-package com.example.moattravel2.entity;
+package com.example.moattravel.entity;
 
 import java.sql.Timestamp;
 
