@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.moattravel2.entity.Role;
 import com.example.moattravel2.entity.User;
 import com.example.moattravel2.form.SignupForm;
+import com.example.moattravel2.form.UserEditForm;
 import com.example.moattravel2.repository.RoleRepository;
 import com.example.moattravel2.repository.UserRepository;
 
@@ -41,23 +42,37 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // メールアドレスが登録済みかどうかをチェックする
+    @Transactional
+    public void update(UserEditForm userEditForm) {
+        User user = userRepository.getReferenceById(userEditForm.getId());
+
+        user.setName(userEditForm.getName());
+        user.setFurigana(userEditForm.getFurigana());
+        user.setPostalCode(userEditForm.getPostalCode());
+        user.setAddress(userEditForm.getAddress());
+        user.setPhoneNumber(userEditForm.getPhoneNumber());
+        user.setEmail(userEditForm.getEmail());
+
+        userRepository.save(user);
+    }
+
     public boolean isEmailRegistered(String email) {
         User user = userRepository.findByEmail(email);
-
         return user != null;
     }
 
-    // パスワードとパスワード（確認用）の入力値が一致するかどうかをチェックする
     public boolean isSamePassword(String password, String passwordConfirmation) {
         return password.equals(passwordConfirmation);
     }
 
-    // ユーザーを有効にする
     @Transactional
     public void enableUser(User user) {
         user.setEnabled(true);
         userRepository.save(user);
     }
 
+    public boolean isEmailChanged(UserEditForm userEditForm) {
+        User currentUser = userRepository.getReferenceById(userEditForm.getId());
+        return !userEditForm.getEmail().equals(currentUser.getEmail());
+    }
 }
