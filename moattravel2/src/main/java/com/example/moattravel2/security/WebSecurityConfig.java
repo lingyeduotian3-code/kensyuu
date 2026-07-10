@@ -25,7 +25,8 @@ public class WebSecurityConfig {
                     "/storage/**",
                     "/",
                     "/signup/**",
-                    "/houses"
+                    "/houses",
+                    "/houses/{id}"
                 ).permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
@@ -49,5 +50,4 @@ public class WebSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

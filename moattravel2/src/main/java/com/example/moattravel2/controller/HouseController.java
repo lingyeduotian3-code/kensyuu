@@ -7,6 +7,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -34,15 +35,25 @@ public class HouseController {
 
         if (keyword != null && !keyword.isEmpty()) {
             if (order != null && order.equals("priceAsc")) {
-                housePage = houseRepository.findByNameLikeOrAddressLikeOrderByPriceAsc("%" + keyword + "%", "%" + keyword + "%", pageable);
+                housePage = houseRepository.findByNameLikeOrAddressLikeOrderByPriceAsc(
+                        "%" + keyword + "%",
+                        "%" + keyword + "%",
+                        pageable);
             } else {
-                housePage = houseRepository.findByNameLikeOrAddressLikeOrderByCreatedAtDesc("%" + keyword + "%", "%" + keyword + "%", pageable);
+                housePage = houseRepository.findByNameLikeOrAddressLikeOrderByCreatedAtDesc(
+                        "%" + keyword + "%",
+                        "%" + keyword + "%",
+                        pageable);
             }
         } else if (area != null && !area.isEmpty()) {
             if (order != null && order.equals("priceAsc")) {
-                housePage = houseRepository.findByAddressLikeOrderByPriceAsc("%" + area + "%", pageable);
+                housePage = houseRepository.findByAddressLikeOrderByPriceAsc(
+                        "%" + area + "%",
+                        pageable);
             } else {
-                housePage = houseRepository.findByAddressLikeOrderByCreatedAtDesc("%" + area + "%", pageable);
+                housePage = houseRepository.findByAddressLikeOrderByCreatedAtDesc(
+                        "%" + area + "%",
+                        pageable);
             }
         } else if (price != null) {
             if (order != null && order.equals("priceAsc")) {
@@ -65,5 +76,14 @@ public class HouseController {
         model.addAttribute("order", order);
 
         return "houses/index";
+    }
+
+    @GetMapping("/{id}")
+    public String show(@PathVariable(name = "id") Integer id, Model model) {
+        House house = houseRepository.getReferenceById(id);
+
+        model.addAttribute("house", house);
+
+        return "houses/show";
     }
 }
