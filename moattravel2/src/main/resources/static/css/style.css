@@ -130,3 +130,8 @@ footer {
     max-width: 1200px;
   }
 }
+.moattravel-stars {
+    color: #f5b301;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+}
